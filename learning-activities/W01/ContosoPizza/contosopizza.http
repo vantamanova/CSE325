@@ -1,0 +1,58 @@
+@contosopizza_HostAddress = http://localhost:5083
+
+// GET the weather forecast
+GET {{contosopizza_HostAddress}}/weatherforecast/
+Accept: application/json
+###
+
+// GET all pizzas
+GET {{contosopizza_HostAddress}}/pizza/
+Accept: application/json
+###
+
+// GET a pizza that exists
+GET {{contosopizza_HostAddress}}/pizza/1
+Accept: application/json
+###
+
+// GET a pizza that does not exist
+GET {{contosopizza_HostAddress}}/pizza/5
+Accept: application/json
+###
+
+// Add a new pizza to the list of pizzas
+POST {{contosopizza_HostAddress}}/pizza/
+Content-Type: application/json
+
+{
+    "name": "Hawaii",
+    "isGlutenFree": false
+}
+###
+
+// Update an existing pizza
+PUT {{contosopizza_HostAddress}}/pizza/4
+Content-Type: application/json
+
+{
+    "id": 4,
+    "name": "Hawaiian",
+    "isGlutenFree": false
+}
+###
+
+// Update an existing pizza
+PUT {{contosopizza_HostAddress}}/pizza/3
+Content-Type: application/json
+
+{
+    "id": 3,
+    "name": "Margheritaa",
+    "isGlutenFree": false
+}
+###
+
+// Delete an existing pizza
+DELETE {{contosopizza_HostAddress}}/pizza/4
+###
+
