@@ -51,6 +51,32 @@ public static class SeedData
                     Genre = "Western",
                     Price = 3.99M,
                     Rating = "R"
+                },
+                new Movie
+                {
+                    Title = "KPop Demon Hunters",
+                    ReleaseDate = DateTime.Parse("2025-6-20"),
+                    Genre = "Animation",
+                    Price = 9.99M,
+                    Rating = "PG"
+                },
+
+                new Movie
+                {
+                    Title = "Spider-Man: No Way Home",
+                    ReleaseDate = DateTime.Parse("2021-12-17"),
+                    Genre = "Action",
+                    Price = 9.99M,
+                    Rating = "PG-13"
+                },
+
+                new Movie
+                {
+                    Title = "Dead Poets Society",
+                    ReleaseDate = DateTime.Parse("1989-6-2"),
+                    Genre = "Drama",
+                    Price = 7.99M,
+                    Rating = "PG"
                 }
             );
             context.SaveChanges();
