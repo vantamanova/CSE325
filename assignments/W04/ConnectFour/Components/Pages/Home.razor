@@ -1,7 +1,26 @@
 ﻿@page "/"
+@rendermode InteractiveServer
 
 <PageTitle>Home</PageTitle>
-<Board @rendermode="InteractiveServer"
-     BoardColor="System.Drawing.Color.Black"
-     Player1Color="System.Drawing.Color.Green"
-     Player2Color="System.Drawing.Color.Purple" />
+
+<label>Board color:
+    <input type="color" @bind="boardColor" @bind:event="oninput" />
+</label>
+
+<label>Player 1 color:
+    <input type="color" @bind="player1Color" @bind:event="oninput" />
+</label>
+
+<label>Player 2 color:
+    <input type="color" @bind="player2Color" @bind:event="oninput" />
+</label>
+
+<Board BoardColor="System.Drawing.ColorTranslator.FromHtml(boardColor)"
+       Player1Color="System.Drawing.ColorTranslator.FromHtml(player1Color)"
+       Player2Color="System.Drawing.ColorTranslator.FromHtml(player2Color)" />
+
+@code {
+    private string boardColor = "#000000";
+    private string player1Color = "#008000";
+    private string player2Color = "#800080";
+}

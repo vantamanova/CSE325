@@ -3,18 +3,49 @@ div {
 }
 
 nav {
-    top: 4em;
-    width: 30em;
-    display: inline-flex;
+    width: 28em;
+    display: flex;
     flex-direction: row;
-    margin-left: 10px;
+    margin-top: 15px;
 }
 
-nav span {
+article {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+nav button {
     width: 4em;
     text-align: center;
     cursor: pointer;
     font-size: 1em;
+}
+
+nav button:hover {
+    transform: translateY(3px);
+}
+
+.reset-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    border: 1px solid #444;
+    color: black;
+    cursor: pointer;
+}
+
+.reset-button:hover {
+    background-color: #c7c6c6;
+}
+
+.alert-danger {
+    color: #b00020;
+}
+
+.alert-info {
+    color: #005a9c;
+    font-weight: bold;
+    background-color: transparent;
 }
 
 div.board {

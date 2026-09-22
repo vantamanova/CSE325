@@ -1,32 +1,24 @@
 @inject GameState State
 @using System.Drawing
 
-<HeadContent>
-    <style>
-        :root {
-            --board-bg: @ColorTranslator.ToHtml(BoardColor);
-            --player1: @ColorTranslator.ToHtml(Player1Color);
-            --player2: @ColorTranslator.ToHtml(Player2Color);
-        }
-    </style>
-</HeadContent>
-
-<nav>
-    @for (byte i = 0; i < 7; i++)
-    {
-        var col = i;
-        <span title="Click to play a piece" @onclick="() => PlayPiece(col)">🔽</span>
-    }
-</nav>
-
 <article>
-    @winnerMessage  <button style="@ResetStyle" @onclick="ResetGame">Reset the game</button>
+    @winnerMessage  @winnerMessage  <button class="reset-button" style="@ResetStyle" @onclick="ResetGame">Reset the game</button>
     <br />
     <span class="alert-danger">@errorMessage</span>
     <span class="alert-info">@CurrentTurn</span>
 </article>
 
-<div>
+<nav>
+    @for (byte i = 0; i < 7; i++)
+    {
+        var col = i;
+        <button type="button"
+        aria-label="Drop piece in column @(col + 1)"
+        @onclick="() => PlayPiece(col)">▼</button>
+    }
+</nav> 
+
+<div style="@BoardStyle"> 
    <div class="board">
       @for (var i = 0; i < 42; i++)
       {
@@ -45,6 +37,10 @@
 
 
 @code {
+    private string BoardStyle =>
+    $"--board-bg: {ColorTranslator.ToHtml(BoardColor)}; " +
+    $"--player1: {ColorTranslator.ToHtml(Player1Color)}; " +
+    $"--player2: {ColorTranslator.ToHtml(Player2Color)};";
     private string[] pieces = new string[42];
     private string winnerMessage = string.Empty;
     private string errorMessage = string.Empty;
